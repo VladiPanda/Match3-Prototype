@@ -15,7 +15,7 @@ public class Board : MonoBehaviour
     /// </summary>
     public Gem[] gems;
     public Gem[,] allGems; // will store x&y value for each gem
-
+    public float gemSpeed;
 
     void Start()
     {

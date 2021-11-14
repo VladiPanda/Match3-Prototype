@@ -26,6 +26,17 @@ public class Gem : MonoBehaviour
     
     void Update()
     {
+        if(Vector2.Distance(transform.position, positionIndex) > 0.01f)
+        {
+            transform.position = Vector2.Lerp(transform.position, positionIndex, board.gemSpeed * Time.deltaTime);
+        }
+        else
+        {
+            transform.position = new Vector3(positionIndex.x, positionIndex.y, 0f);
+            board.allGems[positionIndex.x, positionIndex.y] = this;
+        }
+        
+            
         if(mousePressed && Input.GetMouseButtonUp(0))
         {
             mousePressed = false;
