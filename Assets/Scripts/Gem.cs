@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class Gem : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [HideInInspector]
+    public Vector2Int positionIndex;
+    [HideInInspector]
+    public Board board;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         
+    }
+
+    public void SetupGem(Vector2Int position, Board theBoard)
+    {
+        positionIndex = position;
+        board = theBoard;
     }
 }

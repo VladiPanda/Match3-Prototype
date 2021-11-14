@@ -14,10 +14,13 @@ public class Board : MonoBehaviour
     /// Gems
     /// </summary>
     public Gem[] gems;
+    public Gem[,] allGems; // will store x&y value for each gem
 
 
     void Start()
     {
+        allGems = new Gem[width, height];
+
         Setup();
     }
     /// <summary>
@@ -46,5 +49,8 @@ public class Board : MonoBehaviour
         Gem gem = Instantiate(gemToSpawn, new Vector3(position.x, position.y, 0f), Quaternion.identity);
         gem.transform.parent = this.transform;
         gem.name = "Gem - " + position.x + ", " + position.y;
+        allGems[position.x, position.y] = gem;
+
+        gem.SetupGem(position, this); // this means we will use current board
     }
 }
