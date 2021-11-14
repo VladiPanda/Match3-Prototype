@@ -16,12 +16,26 @@ public class Board : MonoBehaviour
     public Gem[] gems;
     public Gem[,] allGems; // will store x&y value for each gem
     public float gemSpeed;
+    /// <summary>
+    /// Matching
+    /// </summary>
+    [HideInInspector]
+    public MatchFinder matchFind;
 
+    private void Awake()
+    {
+        matchFind = FindObjectOfType<MatchFinder>();
+    }
     void Start()
     {
         allGems = new Gem[width, height];
 
         Setup();
+    }
+
+    private void Update()
+    {
+        matchFind.FindAllMatches();
     }
     /// <summary>
     /// Create BG
@@ -39,6 +53,13 @@ public class Board : MonoBehaviour
 
                 int gemToUse = Random.Range(0, gems.Length);
 
+                int iterations = 0; // crutch to prevent potential crash
+                while (MatchesAt(new Vector2Int(x,y), gems[gemToUse]) && iterations < 100)
+                {
+                    gemToUse = Random.Range(0, gems.Length);
+                    iterations++;
+                }
+
                 SpawnGem(new Vector2Int(x, y), gems[gemToUse]);
             }
         }
@@ -52,5 +73,26 @@ public class Board : MonoBehaviour
         allGems[position.x, position.y] = gem;
 
         gem.SetupGem(position, this); // this means we will use current board
+    }
+
+    bool MatchesAt(Vector2Int positionToCheck, Gem gemToCheck)
+    {
+        if(positionToCheck.x > 1)
+        {
+            if(allGems[positionToCheck.x - 1, positionToCheck.y].type == gemToCheck.type && allGems[positionToCheck.x - 2, positionToCheck.y].type == gemToCheck.type)
+            {
+                return true;
+            }
+        }
+
+        if (positionToCheck.y > 1)
+        {
+            if (allGems[positionToCheck.x, positionToCheck.y - 1].type == gemToCheck.type && allGems[positionToCheck.x, positionToCheck.y - 2].type == gemToCheck.type)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

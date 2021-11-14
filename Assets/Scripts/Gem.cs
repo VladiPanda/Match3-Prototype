@@ -18,6 +18,12 @@ public class Gem : MonoBehaviour
 
     private Gem otherGem;
 
+    public enum GemType { blue, green, red, yellow, purple}
+    public GemType type;
+
+    public bool isMatched;
+  
+    private Vector2Int previousPosition;
     void Start()
     {
         
@@ -72,6 +78,8 @@ public class Gem : MonoBehaviour
 
     private void MovePieces()
     {
+        previousPosition = positionIndex;
+
         if(swipeAngle < 45 && swipeAngle > -45 && positionIndex.x < board.width - 1)
         {
             otherGem = board.allGems[positionIndex.x + 1, positionIndex.y];
@@ -99,5 +107,26 @@ public class Gem : MonoBehaviour
 
         board.allGems[positionIndex.x, positionIndex.y] = this; // store current gem we move
         board.allGems[otherGem.positionIndex.x, otherGem.positionIndex.y] = otherGem;
+
+        StartCoroutine(CheckMoveCoroutine());
+    }
+
+    public IEnumerator CheckMoveCoroutine()
+    {
+        yield return new WaitForSeconds(.5f);
+
+        board.matchFind.FindAllMatches();
+
+        if(otherGem != null)
+        {
+            if (!isMatched && !otherGem.isMatched)
+            {
+                otherGem.positionIndex = positionIndex;
+                positionIndex = previousPosition;
+
+                board.allGems[positionIndex.x, positionIndex.y] = this; 
+                board.allGems[otherGem.positionIndex.x, otherGem.positionIndex.y] = otherGem;
+            }
+        }
     }
 }
