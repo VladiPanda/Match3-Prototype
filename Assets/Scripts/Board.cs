@@ -67,7 +67,7 @@ public class Board : MonoBehaviour
 
     private void SpawnGem(Vector2Int position, Gem gemToSpawn)
     {
-        Gem gem = Instantiate(gemToSpawn, new Vector3(position.x, position.y, 0f), Quaternion.identity);
+        Gem gem = Instantiate(gemToSpawn, new Vector3(position.x, position.y + height, 0f), Quaternion.identity);
         gem.transform.parent = this.transform;
         gem.name = "Gem - " + position.x + ", " + position.y;
         allGems[position.x, position.y] = gem;
@@ -174,7 +174,7 @@ public class Board : MonoBehaviour
 
         matchFind.FindAllMatches();
 
-        if(matchFind.currentMatches.Count > 0)
+        if (matchFind.currentMatches.Count > 0)
         {
             yield return new WaitForSeconds(1.5f);
             DestroyMatches();
@@ -187,14 +187,39 @@ public class Board : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
-                if(allGems[x,y] == null) 
-                { 
-                int gemToUse = Random.Range(0, gems.Length);
+                if (allGems[x, y] == null)
+                {
+                    int gemToUse = Random.Range(0, gems.Length);
 
-                SpawnGem(new Vector2Int(x, y), gems[gemToUse]);
+                    SpawnGem(new Vector2Int(x, y), gems[gemToUse]);
+                }
+            }
+        }
+        CheckMisplacedGems();
+    }
+    /// <summary>
+    /// Another check after refill, will replace after game is finished
+    /// </summary>
+    private void CheckMisplacedGems() // found and remove duplicate of gems
+    {
+        List<Gem> foundGems = new List<Gem>();
+
+        foundGems.AddRange(FindObjectsOfType<Gem>());
+
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                if (foundGems.Contains(allGems[x, y]))
+                {
+                    foundGems.Remove(allGems[x, y]);
                 }
             }
         }
 
+        foreach(Gem gem in foundGems)
+        {
+            Destroy(gem.gameObject);
+        }
     }
 }
