@@ -74,7 +74,12 @@ public class Board : MonoBehaviour
 
         gem.SetupGem(position, this); // this means we will use current board
     }
-
+    /// <summary>
+    /// MatchesGem
+    /// </summary>
+    /// <param name="positionToCheck"></param>
+    /// <param name="gemToCheck"></param>
+    /// <returns></returns>
     bool MatchesAt(Vector2Int positionToCheck, Gem gemToCheck)
     {
         if(positionToCheck.x > 1)
@@ -94,5 +99,33 @@ public class Board : MonoBehaviour
         }
 
         return false;
+    }
+
+    /// <summary>
+    /// DestroyingGems
+    /// </summary>
+    /// <param name="position"></param>
+    private void DestroyMatchedGemAt(Vector2Int position)
+    {
+        if(allGems[position.x, position.y] != null) // checking all gems
+        {
+            if (allGems[position.x, position.y].isMatched) // doublecheck
+            {
+                Destroy(allGems[position.x, position.y].gameObject);
+                allGems[position.x, position.y] = null;
+            }
+        }
+          
+    }
+
+    public void DestroyMatches()
+    {
+        for(int i = 0; i < matchFind.currentMatches.Count; i++)
+        {
+            if(matchFind.currentMatches[i] != null) // checking list
+            {
+                DestroyMatchedGemAt(matchFind.currentMatches[i].positionIndex);
+            }
+        }
     }
 }
