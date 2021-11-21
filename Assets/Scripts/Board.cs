@@ -130,7 +130,10 @@ public class Board : MonoBehaviour
 
         StartCoroutine(DecreaseRowCoroutine());
     }
-
+    /// <summary>
+    /// FallingGems
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator DecreaseRowCoroutine()
     {
         yield return new WaitForSeconds(.2f); // delay before explosion gems
@@ -141,11 +144,11 @@ public class Board : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
-                if(allGems[x,y] == null)
+                if (allGems[x, y] == null)
                 {
                     nullCounter++;
                 }
-                else if(nullCounter > 0)
+                else if (nullCounter > 0)
                 {
                     allGems[x, y].positionIndex.y -= nullCounter;
                     allGems[x, y - nullCounter] = allGems[x, y];
@@ -155,5 +158,43 @@ public class Board : MonoBehaviour
 
             nullCounter = 0;
         }
+
+        StartCoroutine(FillBoardCoroutine());
+    }
+    /// <summary>
+    /// RefillingGems
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator FillBoardCoroutine() // refilling/matching logic, cascade effect
+    {
+        yield return new WaitForSeconds(.5f);
+        RefillBoard();
+
+        yield return new WaitForSeconds(.5f);
+
+        matchFind.FindAllMatches();
+
+        if(matchFind.currentMatches.Count > 0)
+        {
+            yield return new WaitForSeconds(1.5f);
+            DestroyMatches();
+        }
+    }
+
+    private void RefillBoard()
+    {
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                if(allGems[x,y] == null) 
+                { 
+                int gemToUse = Random.Range(0, gems.Length);
+
+                SpawnGem(new Vector2Int(x, y), gems[gemToUse]);
+                }
+            }
+        }
+
     }
 }
