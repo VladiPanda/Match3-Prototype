@@ -44,7 +44,7 @@ public class Board : MonoBehaviour
     {
         for (int x = 0; x < width; x++)
         {
-            for(int y = 0; y < height; y++)
+            for (int y = 0; y < height; y++)
             {
                 Vector2 position = new Vector2(x, y);
                 GameObject bgTile = Instantiate(bgTilePrefab, position, Quaternion.identity);
@@ -54,7 +54,7 @@ public class Board : MonoBehaviour
                 int gemToUse = Random.Range(0, gems.Length);
 
                 int iterations = 0; // crutch to prevent potential crash
-                while (MatchesAt(new Vector2Int(x,y), gems[gemToUse]) && iterations < 100)
+                while (MatchesAt(new Vector2Int(x, y), gems[gemToUse]) && iterations < 100)
                 {
                     gemToUse = Random.Range(0, gems.Length);
                     iterations++;
@@ -82,9 +82,9 @@ public class Board : MonoBehaviour
     /// <returns></returns>
     bool MatchesAt(Vector2Int positionToCheck, Gem gemToCheck)
     {
-        if(positionToCheck.x > 1)
+        if (positionToCheck.x > 1)
         {
-            if(allGems[positionToCheck.x - 1, positionToCheck.y].type == gemToCheck.type && allGems[positionToCheck.x - 2, positionToCheck.y].type == gemToCheck.type)
+            if (allGems[positionToCheck.x - 1, positionToCheck.y].type == gemToCheck.type && allGems[positionToCheck.x - 2, positionToCheck.y].type == gemToCheck.type)
             {
                 return true;
             }
@@ -107,7 +107,7 @@ public class Board : MonoBehaviour
     /// <param name="position"></param>
     private void DestroyMatchedGemAt(Vector2Int position)
     {
-        if(allGems[position.x, position.y] != null) // checking all gems
+        if (allGems[position.x, position.y] != null) // checking all gems
         {
             if (allGems[position.x, position.y].isMatched) // doublecheck
             {
@@ -115,17 +115,45 @@ public class Board : MonoBehaviour
                 allGems[position.x, position.y] = null;
             }
         }
-          
+
     }
 
     public void DestroyMatches()
     {
-        for(int i = 0; i < matchFind.currentMatches.Count; i++)
+        for (int i = 0; i < matchFind.currentMatches.Count; i++)
         {
-            if(matchFind.currentMatches[i] != null) // checking list
+            if (matchFind.currentMatches[i] != null) // checking list
             {
                 DestroyMatchedGemAt(matchFind.currentMatches[i].positionIndex);
             }
+        }
+
+        StartCoroutine(DecreaseRowCoroutine());
+    }
+
+    private IEnumerator DecreaseRowCoroutine()
+    {
+        yield return new WaitForSeconds(.2f); // delay before explosion gems
+
+        int nullCounter = 0;
+
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                if(allGems[x,y] == null)
+                {
+                    nullCounter++;
+                }
+                else if(nullCounter > 0)
+                {
+                    allGems[x, y].positionIndex.y -= nullCounter;
+                    allGems[x, y - nullCounter] = allGems[x, y];
+                    allGems[x, y] = null;
+                }
+            }
+
+            nullCounter = 0;
         }
     }
 }
