@@ -16,6 +16,8 @@ public class Board : MonoBehaviour
     public Gem[] gems;
     public Gem[,] allGems; // will store x&y value for each gem
     public float gemSpeed;
+    public Gem bomb;
+    public float bombChance = 2f;
     /// <summary>
     /// Matching
     /// </summary>
@@ -26,6 +28,7 @@ public class Board : MonoBehaviour
     /// </summary>
     public enum BoardState {wait, move}
     public BoardState currentState = BoardState.move;
+
 
     private void Awake()
     {
@@ -72,6 +75,11 @@ public class Board : MonoBehaviour
 
     private void SpawnGem(Vector2Int position, Gem gemToSpawn)
     {
+        if(Random.Range(0f, 100f) < bombChance) // bomb spawn chance
+        {
+            gemToSpawn = bomb;
+        }
+
         Gem gem = Instantiate(gemToSpawn, new Vector3(position.x, position.y + height, 0f), Quaternion.identity);
         gem.transform.parent = this.transform;
         gem.name = "Gem - " + position.x + ", " + position.y;

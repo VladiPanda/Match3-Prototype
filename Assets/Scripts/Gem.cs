@@ -18,7 +18,7 @@ public class Gem : MonoBehaviour
 
     private Gem otherGem;
 
-    public enum GemType { blue, green, red, yellow, purple}
+    public enum GemType { blue, green, red, yellow, purple, bomb}
     public GemType type;
 
     public bool isMatched;
@@ -26,6 +26,8 @@ public class Gem : MonoBehaviour
     private Vector2Int previousPosition;
 
     public GameObject destroyEffect;
+
+    public int blastSize = 2;
 
     void Start()
     {
