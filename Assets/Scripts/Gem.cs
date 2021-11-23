@@ -24,6 +24,9 @@ public class Gem : MonoBehaviour
     public bool isMatched;
   
     private Vector2Int previousPosition;
+
+    public GameObject destroyEffect;
+
     void Start()
     {
         
