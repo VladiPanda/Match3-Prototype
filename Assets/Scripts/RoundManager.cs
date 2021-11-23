@@ -10,6 +10,12 @@ public class RoundManager : MonoBehaviour
     private bool endingRound = false;
 
     private Board board;
+
+    public int currentScore;
+
+    public float displayScore;
+
+    public float scoreSpeed;
     
     void Awake()
     {
@@ -39,6 +45,8 @@ public class RoundManager : MonoBehaviour
         }
 
         uiManager.timeText.text = roundTime.ToString("0.0") + "sec";
+        displayScore = Mathf.Lerp(displayScore, currentScore, scoreSpeed * Time.deltaTime);
+        uiManager.scoreText.text = displayScore.ToString("0");
     }
 
     private void WinCheck()

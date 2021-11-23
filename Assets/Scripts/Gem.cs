@@ -29,6 +29,8 @@ public class Gem : MonoBehaviour
 
     public int blastSize = 2;
 
+    public int scoreValue = 10;
+
     void Start()
     {
         

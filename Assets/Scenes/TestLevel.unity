@@ -464,7 +464,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeText: {fileID: 949459834}
   scoreText: {fileID: 1333204498}
-  roundOverScreen: {fileID: 639388086}
+  roundOverScreen: {fileID: 1823814538}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -816,7 +816,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ced8c3db56fd285479a59e6946cbc98d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundTime: 5
+  roundTime: 60
+  currentScore: 0
 --- !u!4 &639388088
 Transform:
   m_ObjectHideFlags: 0
@@ -874,6 +875,7 @@ MonoBehaviour:
   bombChance: 2
   matchFind: {fileID: 0}
   currentState: 1
+  roundManager: {fileID: 0}
 --- !u!4 &694546264
 Transform:
   m_ObjectHideFlags: 0
