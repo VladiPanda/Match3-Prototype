@@ -28,11 +28,13 @@ public class Board : MonoBehaviour
     /// </summary>
     public enum BoardState {wait, move}
     public BoardState currentState = BoardState.move;
-
+    [HideInInspector]
+    public RoundManager roundManager;
 
     private void Awake()
     {
         matchFind = FindObjectOfType<MatchFinder>();
+        roundManager = FindObjectOfType<RoundManager>();
     }
     void Start()
     {
