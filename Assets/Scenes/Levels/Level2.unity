@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 267552940}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3, y: 3, z: 0}
+  m_LocalPosition: {x: 2, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 694546264}
@@ -199,7 +199,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 7.2, y: 7.2}
+  m_Size: {x: 5.2, y: 5.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -258,7 +258,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4
+  orthographic size: 2.9587462
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -282,7 +282,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.13, y: 3, z: -10}
+  m_LocalPosition: {x: -0.13, y: 1.98, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -313,7 +313,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 571682125}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3, y: 3, z: 0}
+  m_LocalPosition: {x: 2, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 694546264}
@@ -364,7 +364,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 7, y: 7}
+  m_Size: {x: 5, y: 5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -395,7 +395,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 627877759}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3, y: 3, z: 0}
+  m_LocalPosition: {x: 2, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 694546264}
@@ -446,7 +446,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 7.4, y: 7.4}
+  m_Size: {x: 5.4, y: 5.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -531,15 +531,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 893ec840010f447489ada5d0ff19b733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 7
-  height: 7
+  width: 5
+  height: 5
   bgTilePrefab: {fileID: 291395543358684416, guid: 6810779faee072d4dbaeb36d4bd4229c, type: 3}
   gems:
   - {fileID: 1590904351295266372, guid: 1a278e73a553368428b986770bb96624, type: 3}
   - {fileID: 8967310818184255630, guid: 8323a59b533ad924094a3b9d07d8ad1a, type: 3}
   - {fileID: 3677560126218854920, guid: 92b7fade716b5374c801585ed82865a7, type: 3}
   - {fileID: 1820306168735100000, guid: fc1484e34e45cf046b85c7b2f2263f38, type: 3}
-  - {fileID: 7593599058191291620, guid: 7eacbfdd8e47c7b46bd8b21f1445053a, type: 3}
   gemSpeed: 7
   bomb: {fileID: 4925068602942060121, guid: 363f5d1a36198954abd1e68d74af16ea, type: 3}
   bombChance: 2
