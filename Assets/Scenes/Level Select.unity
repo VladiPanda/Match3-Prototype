@@ -123,6 +123,16 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &33863116 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3300780719683994979, guid: baff887cdcbf15a41b5356362834675e, type: 3}
+  m_PrefabInstance: {fileID: 6957382653584175537}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &832007902 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6792536126081206344, guid: baff887cdcbf15a41b5356362834675e, type: 3}
+  m_PrefabInstance: {fileID: 1341921494}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1050077715
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,6 +203,16 @@ Transform:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9026845484544431331, guid: 9e0711fc667cc0c4ebdb3bbf67679f2c, type: 3}
   m_PrefabInstance: {fileID: 1672265952}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1178740649 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6792536126081206344, guid: baff887cdcbf15a41b5356362834675e, type: 3}
+  m_PrefabInstance: {fileID: 6957382653584175537}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1314305753 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3300780719683994979, guid: baff887cdcbf15a41b5356362834675e, type: 3}
+  m_PrefabInstance: {fileID: 1341921494}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1341921494
 PrefabInstance:
@@ -296,6 +316,18 @@ PrefabInstance:
       value: Level Select Button - Level2
       objectReference: {fileID: 0}
     - target: {fileID: 9026845484150118070, guid: baff887cdcbf15a41b5356362834675e, type: 3}
+      propertyPath: star1
+      value: 
+      objectReference: {fileID: 1314305753}
+    - target: {fileID: 9026845484150118070, guid: baff887cdcbf15a41b5356362834675e, type: 3}
+      propertyPath: star2
+      value: 
+      objectReference: {fileID: 1397713575}
+    - target: {fileID: 9026845484150118070, guid: baff887cdcbf15a41b5356362834675e, type: 3}
+      propertyPath: star3
+      value: 
+      objectReference: {fileID: 832007902}
+    - target: {fileID: 9026845484150118070, guid: baff887cdcbf15a41b5356362834675e, type: 3}
       propertyPath: levelToLoad
       value: Level2
       objectReference: {fileID: 0}
@@ -305,6 +337,16 @@ PrefabInstance:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2146064785626769156, guid: baff887cdcbf15a41b5356362834675e, type: 3}
   m_PrefabInstance: {fileID: 1341921494}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1397713575 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2783293548768003836, guid: baff887cdcbf15a41b5356362834675e, type: 3}
+  m_PrefabInstance: {fileID: 1341921494}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1628236724 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2783293548768003836, guid: baff887cdcbf15a41b5356362834675e, type: 3}
+  m_PrefabInstance: {fileID: 6957382653584175537}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1672265952
 PrefabInstance:
@@ -735,6 +777,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level Select Button - Level1
       objectReference: {fileID: 0}
+    - target: {fileID: 9026845484150118070, guid: baff887cdcbf15a41b5356362834675e, type: 3}
+      propertyPath: star1
+      value: 
+      objectReference: {fileID: 33863116}
+    - target: {fileID: 9026845484150118070, guid: baff887cdcbf15a41b5356362834675e, type: 3}
+      propertyPath: star2
+      value: 
+      objectReference: {fileID: 1628236724}
+    - target: {fileID: 9026845484150118070, guid: baff887cdcbf15a41b5356362834675e, type: 3}
+      propertyPath: star3
+      value: 
+      objectReference: {fileID: 1178740649}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: baff887cdcbf15a41b5356362834675e, type: 3}
 --- !u!224 &9026845484150118069 stripped
