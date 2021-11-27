@@ -512,6 +512,7 @@ GameObject:
   m_Component:
   - component: {fileID: 694546264}
   - component: {fileID: 694546263}
+  - component: {fileID: 694546265}
   m_Layer: 0
   m_Name: Board
   m_TagString: Untagged
@@ -563,6 +564,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &694546265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694546262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72328c3ed5dd1d44798789a4b12ef7a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allRows:
+  - gemsInRow:
+    - {fileID: 1590904351295266372, guid: 1a278e73a553368428b986770bb96624, type: 3}
+    - {fileID: 1820306168735100000, guid: fc1484e34e45cf046b85c7b2f2263f38, type: 3}
+    - {fileID: 1590904351295266372, guid: 1a278e73a553368428b986770bb96624, type: 3}
+    - {fileID: 1820306168735100000, guid: fc1484e34e45cf046b85c7b2f2263f38, type: 3}
+    - {fileID: 1590904351295266372, guid: 1a278e73a553368428b986770bb96624, type: 3}
+  - gemsInRow:
+    - {fileID: 1820306168735100000, guid: fc1484e34e45cf046b85c7b2f2263f38, type: 3}
+    - {fileID: 1590904351295266372, guid: 1a278e73a553368428b986770bb96624, type: 3}
+    - {fileID: 1820306168735100000, guid: fc1484e34e45cf046b85c7b2f2263f38, type: 3}
+    - {fileID: 1590904351295266372, guid: 1a278e73a553368428b986770bb96624, type: 3}
+    - {fileID: 1820306168735100000, guid: fc1484e34e45cf046b85c7b2f2263f38, type: 3}
+  - gemsInRow:
+    - {fileID: 1590904351295266372, guid: 1a278e73a553368428b986770bb96624, type: 3}
+    - {fileID: 1820306168735100000, guid: fc1484e34e45cf046b85c7b2f2263f38, type: 3}
+    - {fileID: 1590904351295266372, guid: 1a278e73a553368428b986770bb96624, type: 3}
+    - {fileID: 1820306168735100000, guid: fc1484e34e45cf046b85c7b2f2263f38, type: 3}
+    - {fileID: 1590904351295266372, guid: 1a278e73a553368428b986770bb96624, type: 3}
+  - gemsInRow:
+    - {fileID: 1820306168735100000, guid: fc1484e34e45cf046b85c7b2f2263f38, type: 3}
+    - {fileID: 1590904351295266372, guid: 1a278e73a553368428b986770bb96624, type: 3}
+    - {fileID: 1820306168735100000, guid: fc1484e34e45cf046b85c7b2f2263f38, type: 3}
+    - {fileID: 1590904351295266372, guid: 1a278e73a553368428b986770bb96624, type: 3}
+    - {fileID: 1820306168735100000, guid: fc1484e34e45cf046b85c7b2f2263f38, type: 3}
+  - gemsInRow:
+    - {fileID: 1590904351295266372, guid: 1a278e73a553368428b986770bb96624, type: 3}
+    - {fileID: 1820306168735100000, guid: fc1484e34e45cf046b85c7b2f2263f38, type: 3}
+    - {fileID: 1590904351295266372, guid: 1a278e73a553368428b986770bb96624, type: 3}
+    - {fileID: 1820306168735100000, guid: fc1484e34e45cf046b85c7b2f2263f38, type: 3}
+    - {fileID: 1590904351295266372, guid: 1a278e73a553368428b986770bb96624, type: 3}
 --- !u!1 &888954372
 GameObject:
   m_ObjectHideFlags: 0

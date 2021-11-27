@@ -35,14 +35,21 @@ public class Board : MonoBehaviour
     /// </summary>
     private float bonusMultiply;
     public float bonusAmount = .5f;
+
+    private BoardLayout boardLayout;
+    private Gem[,] layoutStore;
+
     private void Awake()
     {
         matchFind = FindObjectOfType<MatchFinder>();
         roundManager = FindObjectOfType<RoundManager>();
+        boardLayout = GetComponent<BoardLayout>();
     }
     void Start()
     {
         allGems = new Gem[width, height];
+
+        layoutStore = new Gem[width, height];
 
         Setup();
     }
@@ -61,6 +68,11 @@ public class Board : MonoBehaviour
     /// </summary>
     private void Setup()
     {
+        if(boardLayout != null)
+        {
+            layoutStore = boardLayout.GetLayout();
+        }
+
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
@@ -70,6 +82,12 @@ public class Board : MonoBehaviour
                 bgTile.transform.parent = transform; // attaching bricks in main tile
                 bgTile.name = "BG Tile - " + x + ", " + y; // for more correct naming tiles
 
+                if(layoutStore[x,y] != null)
+                {
+                    SpawnGem(new Vector2Int(x,y), layoutStore[x,y]);
+                }
+                else 
+                { 
                 int gemToUse = Random.Range(0, gems.Length);
 
                 int iterations = 0; // crutch to prevent potential crash
@@ -80,6 +98,7 @@ public class Board : MonoBehaviour
                 }
 
                 SpawnGem(new Vector2Int(x, y), gems[gemToUse]);
+                }
             }
         }
     }
