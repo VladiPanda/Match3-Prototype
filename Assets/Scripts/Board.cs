@@ -154,6 +154,19 @@ public class Board : MonoBehaviour
         {
             if (allGems[position.x, position.y].isMatched) // doublecheck
             {
+                if(allGems[position.x, position.x].type == Gem.GemType.bomb)
+                {
+                    SFXManager.instance.PlayExplode();
+                }
+                else if (allGems[position.x, position.x].type == Gem.GemType.stone)
+                {
+                    SFXManager.instance.PlayStoneBreak();
+                }
+                else 
+                {
+                    SFXManager.instance.PlayGemBreak();
+                }
+
                 Instantiate(allGems[position.x, position.y].destroyEffect, new Vector2(position.x, position.y), Quaternion.identity);
 
                 Destroy(allGems[position.x, position.y].gameObject);

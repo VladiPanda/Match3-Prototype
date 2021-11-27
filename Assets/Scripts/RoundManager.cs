@@ -87,5 +87,7 @@ public class RoundManager : MonoBehaviour
         {
             uiManager.winText.text = "Try again?";
         }
+
+        SFXManager.instance.PlayRoundOver();
     }
 }
