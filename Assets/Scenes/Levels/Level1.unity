@@ -858,6 +858,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1405885898 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 829835052, guid: 77e55b7627c8c2c4790b38e5592b4803, type: 3}
+  m_PrefabInstance: {fileID: 296096732579577815}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &296096732579577815
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -869,6 +874,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 296096732460502894, guid: 77e55b7627c8c2c4790b38e5592b4803, type: 3}
+      propertyPath: pauseScreen
+      value: 
+      objectReference: {fileID: 1405885898}
     - target: {fileID: 296096732460502895, guid: 77e55b7627c8c2c4790b38e5592b4803, type: 3}
       propertyPath: m_Pivot.x
       value: 0

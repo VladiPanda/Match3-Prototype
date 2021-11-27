@@ -154,11 +154,11 @@ public class Board : MonoBehaviour
         {
             if (allGems[position.x, position.y].isMatched) // doublecheck
             {
-                if(allGems[position.x, position.x].type == Gem.GemType.bomb)
+                if(allGems[position.x, position.y].type == Gem.GemType.bomb)
                 {
                     SFXManager.instance.PlayExplode();
                 }
-                else if (allGems[position.x, position.x].type == Gem.GemType.stone)
+                else if (allGems[position.x, position.y].type == Gem.GemType.stone)
                 {
                     SFXManager.instance.PlayStoneBreak();
                 }
